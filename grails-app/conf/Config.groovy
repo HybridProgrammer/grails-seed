@@ -103,6 +103,14 @@ log4j.main = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
+    // Uncomment To log everything to stdout
+    /*
+    root {
+        debug 'stdout'
+        info 'stdout'
+    }
+    */
+
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
@@ -114,4 +122,15 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    // Uncomment to troubleshoot CAS
+    /*
+    debug   'grails.plugins.springsecurity'
+    debug   'org.codehaus.groovy.grails.plugins.springsecurity'
+    debug   'org.springframework.security'
+    debug   'org.jasig.cas.client'
+    */
+
+    // Uncomment to troubleshoot spring security
+    //info 'grails.plugin.springsecurity.web.filter.DebugFilter'
 }
