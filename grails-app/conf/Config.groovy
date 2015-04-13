@@ -134,3 +134,92 @@ log4j.main = {
     // Uncomment to troubleshoot spring security
     //info 'grails.plugin.springsecurity.web.filter.DebugFilter'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.grailsseed.auth.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.grailsseed.auth.UserRole'
+grails.plugin.springsecurity.authority.className = 'org.grailsseed.auth.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/assets/**':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll'],
+
+    '/user/**':                         ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
+    '/role/**':                         ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
+    '/aclClass/**':                     ['ROLE_ADMIN'],
+    '/aclEntry/**':                     ['ROLE_ADMIN'],
+    '/aclSid/**':                       ['ROLE_ADMIN'],
+    '/register/**':                     ['ROLE_ADMIN'],
+    '/requestmap/**':                   ['ROLE_ADMIN'],
+    '/securityInfo/**':                 ['ROLE_ADMIN'],
+    '/registrationCode/**':             ['ROLE_ADMIN'],
+
+    // Controllers
+    '/logout/**':                       ['permitAll'],
+
+    // URLs
+    '/admin/**':            ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
+]
+
+/**
+ * Here we enable basic authentication support. Later we will show how we only enable this on certain URLs
+ */
+grails.plugin.springsecurity.useBasicAuth = true
+grails.plugin.springsecurity.basic.realmName = appName
+
+/**
+ * Now we can explicitly choose which url's will use basic authenticaiton
+ */
+grails.plugin.springsecurity.filterChain.chainMap = [
+        // Enable only on these Urls
+        '/api/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
+
+        // Disable basic authentication on all other urls.
+        '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
+]
+
+grails.mail.default.from="donotreply@fau.edu"
+grails {
+    mail {
+//        host = "smtp.changeme.org"
+        host = "localhost"
+        pop_port = 25
+        username = ""
+        password = ""
+
+    }
+}
+
+/**
+ * CAS Suport
+ *
+ * Uncomment if you want to use CAS. You'll also need to uncomment
+ *
+ * compile ":spring-security-cas:2.0-RC1"
+ *
+ * found in BuildConfig.groovy
+ */
+
+/*
+grails.plugin.springsecurity.cas.loginUri = '/login'
+grails.plugin.springsecurity.cas.serviceUrl = 'http://localhost:8080/' + appName + '/j_spring_cas_security_check'
+grails.plugin.springsecurity.cas.filterProcessesUrl = "/j_spring_cas_security_check" // same as uri part of serviceUrl
+grails.plugin.springsecurity.cas.serverUrlPrefix = 'https://sso.changeme.org'
+grails.plugin.springsecurity.logout.afterLogoutUrl =
+        'https://sso.changeme.org/logout?url=http://localhost:8080/'+appName+'/logout'
+grails.plugin.springsecurity.useSecurityEventListener = true
+
+grails.plugin.springsecurity.cas.useSamlValidator = true
+grails.plugin.springsecurity.cas.useSingleSignout = true
+grails.plugin.springsecurity.cas.proxyCallbackUrl = 'http://localhost:8080/'+appName+'/secure/receptor'
+grails.plugin.springsecurity.cas.proxyReceptorUrl = '/secure/receptor'
+grails.plugin.springsecurity.cas.driftTolerance = 120000
+grails.plugin.springsecurity.cas.active = true
+grails.plugin.springsecurity.cas.sendRenew = false
+*/
