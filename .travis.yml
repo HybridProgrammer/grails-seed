@@ -10,4 +10,5 @@ env:
   - GIT_EMAIL="ci@grails-seed.org"
 before_script:
 - rm -rf target
+- chmod +x ./travis-build.sh
 script: ./travis-build.sh
