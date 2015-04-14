@@ -26,6 +26,9 @@ Most configurations are found in grails-app/conf/Config.groovy & grails-app/conf
 * famfamfam icons
 
 # How to run
+## Requirements
+The only requirement you need is Java. You need to install JDK, Java Development Kit,  1.7 or above. I personally amd running version 1.8. You can download 1.8 JDK from [Oracle's Download](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) page.  
+
 ## Mac Or Linux Users
 ```bash
 > git clone git@github.com:HybridProgrammer/grails-seed.git
