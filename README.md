@@ -32,6 +32,8 @@ Most configurations are found in grails-app/conf/Config.groovy & grails-app/conf
 > ./grailsw run-app
 
 ## Windows Users
+```bash
 > git clone https://github.com/HybridProgrammer/grails-seed.git
 > cd grails-seed
 > ./grailsw.bat run-app
+```
