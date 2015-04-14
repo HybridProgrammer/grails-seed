@@ -1,6 +1,8 @@
 # grails-seed
 Works with grails version 2.4.3
 
+Idea comes from similar projects like http://github.com/angular/angular-seed
+
 ## Features
 These features aren't normally configured for you in grails and have been added to 
 grails-seed for your convenience. 
