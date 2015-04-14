@@ -27,9 +27,11 @@ Most configurations are found in grails-app/conf/Config.groovy & grails-app/conf
 
 # How to run
 ## Mac Or Linux Users
+```bash
 > git clone git@github.com:HybridProgrammer/grails-seed.git
 > cd grails-seed
 > ./grailsw run-app
+```
 
 ## Windows Users
 ```bash
