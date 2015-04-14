@@ -26,4 +26,12 @@ Most configurations are found in grails-app/conf/Config.groovy & grails-app/conf
 * famfamfam icons
 
 # How to run
-> grails run-app
+## Mac Or Linux Users
+> git clone git@github.com:HybridProgrammer/grails-seed.git
+> cd grails-seed
+> ./grailsw run-app
+
+## Windows Users
+> git clone https://github.com/HybridProgrammer/grails-seed.git
+> cd grails-seed
+> ./grailsw.bat run-app
