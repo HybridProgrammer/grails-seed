@@ -1,3 +1,5 @@
+![Build Status](https://api.travis-ci.org/HybridProgrammer/grails-seed.svg?branch=master)
+
 # grails-seed
 Works with grails version 2.4.3
 
