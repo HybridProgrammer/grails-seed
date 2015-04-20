@@ -104,12 +104,12 @@ log4j.main = {
     //}
 
     // Uncomment To log everything to stdout
-    /*
+
     root {
         debug 'stdout'
         info 'stdout'
     }
-    */
+
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -123,16 +123,16 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 
-    // Uncomment to troubleshoot CAS
-    /*
+    // Uncomment to troubleshoot Spring Security
     debug   'grails.plugins.springsecurity'
     debug   'org.codehaus.groovy.grails.plugins.springsecurity'
     debug   'org.springframework.security'
+    /* // Uncomment to troubleshoot CAS
     debug   'org.jasig.cas.client'
     */
 
     // Uncomment to troubleshoot spring security
-    //info 'grails.plugin.springsecurity.web.filter.DebugFilter'
+    info 'grails.plugin.springsecurity.web.filter.DebugFilter'
 }
 
 
@@ -144,12 +144,15 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
+    '/index_grails':                  ['permitAll'],
+    '/index_grails.gsp':              ['permitAll'],
 	'/assets/**':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
 
+    // Spring Security UI
     '/user/**':                         ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
     '/role/**':                         ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
     '/aclClass/**':                     ['ROLE_ADMIN'],
@@ -164,7 +167,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/logout/**':                       ['permitAll'],
 
     // URLs
-    '/admin/**':            ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
+    '/admin/**':                        ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
+    '/api/**':                          ['permitAll'],
+
 ]
 
 /**
