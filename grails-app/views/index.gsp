@@ -8,6 +8,6 @@
 </script>
 </head>
 <body>
-Go to <a href="pages/index.html">/pages/index.html</a>
+Go to <a href="sb-admin2/index.html">/sb-admin2/index.gsp</a>
 </body>
 </html>

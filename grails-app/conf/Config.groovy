@@ -168,7 +168,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
     // URLs
     '/admin/**':                        ['ROLE_ADMIN','ROLE_ACCOUNT_GRANTER'],
-    '/api/**':                          ['permitAll'],
+    '/sb-admin2/**':                          ['permitAll'],
 
 ]
 
